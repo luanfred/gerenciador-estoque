@@ -9,6 +9,9 @@ readme = "README.md"
 requires-python = ">=3.10,<4.0"
 dependencies = [
     "fastapi[standard] (>=0.115.11,<0.116.0)",
+    "sqlalchemy (>=2.0.38,<3.0.0)",
+    "load-dotenv (>=0.1.0,<0.2.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
 ]
 
 [tool.poetry]
@@ -42,7 +45,7 @@ quote-style = 'single'
 lint = 'ruff check'
 pre_format = 'ruff check --fix'
 format = 'ruff format'
-run = 'fastapi dev app/app.py'
+run = 'uvicorn app.main:app --reload'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=app -vv'
 post_test = 'coverage html'
