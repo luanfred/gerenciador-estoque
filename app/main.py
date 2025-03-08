@@ -1,16 +1,10 @@
-from http import HTTPStatus
-
 from fastapi import FastAPI
 
-from app.core.deps import create_all_tables
-from app.schemas.users_schema import UsersSchema
+from app.api.api import api_router
 
-app = FastAPI()
+app = FastAPI(
+    title='Gerenciador de Estoque',
+    description='API para gerenciamento de estoque',
+)
 
-create_all_tables()
-
-
-@app.get('/', status_code=HTTPStatus.OK, response_model=UsersSchema)
-def read_root():
-    user = UsersSchema(name='Hello', email='World', password='123456')
-    return user
+app.include_router(api_router)
