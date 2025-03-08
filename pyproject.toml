@@ -30,7 +30,7 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
-line-length = 79
+line-length = 100
 extend-exclude = ['migrations']
 
 [tool.ruff.lint]
@@ -49,6 +49,7 @@ run = 'uvicorn app.main:app --reload'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=app -vv'
 post_test = 'coverage html'
+create_tables = 'python3 -m app.create_all_tables'
 
 [tool.pytest.ini_options]
 pythonpath = "."

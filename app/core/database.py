@@ -1,9 +1,9 @@
 import os
 
+from fastapi import Depends
 from load_dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, MappedAsDataclass, sessionmaker
-from fastapi import Depends
 
 load_dotenv()
 
@@ -23,6 +23,7 @@ class Base(MappedAsDataclass, DeclarativeBase):
 
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 
 def get_session():
     db = SessionLocal()
