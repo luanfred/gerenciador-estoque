@@ -7,7 +7,10 @@ from app.core.database import db_dependency
 from app.core.security import Security
 from app.models.users_model import UsersModel
 from app.schemas.users_schema import UsersSchemaCreate, UsersSchemaResponse, UsersSchemaUpdate
-from app.services.validate_user_exists import validate_user_exists
+from app.services.validate_user_exists import (
+    validate_user_exists,
+    validate_user_exists_excluded_authenticated,
+)
 
 router = APIRouter()
 
@@ -68,7 +71,7 @@ def update_user(user_id: int, user: UsersSchemaUpdate, db: Session = db_dependen
     if user_to_update is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='User not found')
 
-    user_exists = validate_user_exists(user.name, user.email, db)
+    user_exists = validate_user_exists_excluded_authenticated(user.name, user.email, db, user_id)
     if user_exists['exists']:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
