@@ -45,6 +45,36 @@ def test_create_user_existing_name(client):
     assert response.json()['detail'] == 'User already registered with this name'
 
 
+def test_login_user(client):
+    email = 'testuser6@example.com'
+    password = 'testpassword'
+    client.post(
+        f'{PREFIX}/register/',
+        json={'name': 'testuser6', 'email': email, 'password': password},
+    )
+    response_login = client.post(
+        f'{PREFIX}/login/',
+        data={'username': email, 'password': password},
+    )
+    assert response_login.status_code == HTTPStatus.OK
+    assert 'access_token' in response_login.json()
+    assert 'token_type' in response_login.json()
+
+
+def test_login_user_invalid_credentials(client):
+    email = 'testuser6@example.com'
+    password = 'testpassword'
+    client.post(
+        f'{PREFIX}/register/',
+        json={'name': 'testuser6', 'email': email, 'password': password},
+    )
+    response_login = client.post(
+        f'{PREFIX}/login/',
+        data={'username': email, 'password': 'wrongpassword'},
+    )
+    assert response_login.status_code == HTTPStatus.UNAUTHORIZED
+
+
 def test_get_user_by_id(client):
     email = 'testuser6@example.com'
     password = 'testpassword'
@@ -107,6 +137,46 @@ def test_update_user_not_found(client):
     )
     assert response.status_code == HTTPStatus.NOT_FOUND
     assert response.json()['detail'] == 'User not found'
+
+
+def test_update_user_email_already_exists(client):
+    # 1 - Create the first user
+    nome = 'testuser1'
+    email = 'testuser1@example.com'
+    password = 'testpassword'
+    response_user = client.post(
+        f'{PREFIX}/register/',
+        json={'name': nome, 'email': email, 'password': password},
+    )
+    user_id = response_user.json()['id']
+    headers = create_header_autorization(client, email, password)
+
+    # 2 - Create the second user
+    nome_2 = 'testuser2'
+    email_2 = 'testeemail2@example.com'
+    client.post(
+        f'{PREFIX}/register/',
+        json={'name': nome_2, 'email': email_2, 'password': 'testpassword'},
+    )
+
+    # 3 - Attempt to update the first user with the second user's email
+    response = client.put(
+        f'{PREFIX}/{user_id}/',
+        json={'name': 'testuser3', 'email': email_2, 'password': 'testpassword'},
+        headers=headers,
+    )
+
+    assert response.status_code == HTTPStatus.CONFLICT
+    assert response.json()['detail'] == 'User already registered with this email'
+
+    # 4 - Attempt to update the second user with the first user's name
+    response = client.put(
+        f'{PREFIX}/{user_id}/',
+        json={'name': nome_2, 'email': 'testeuser3@example.com', 'password': 'testpassword'},
+        headers=headers,
+    )
+    assert response.status_code == HTTPStatus.CONFLICT
+    assert response.json()['detail'] == 'User already registered with this name'
 
 
 def test_delete_user(client):
