@@ -15,6 +15,7 @@ dependencies = [
     "passlib (>=1.7.4,<2.0.0)",
     "pytz (>=2025.1,<2026.0)",
     "python-jose (>=3.4.0,<4.0.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
 ]
 
 [tool.poetry]

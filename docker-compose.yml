@@ -1,17 +1,8 @@
-version: '3.8'
 
 services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: mudar123
-      POSTGRES_DB: gerenciador-estoque
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:
-    driver: local
+  
+  fastapi:
+    build: .
+    container_name: aplicacao-fastapi
+    ports: 
+      - "80:8000"
