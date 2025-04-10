@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Login.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:400" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="content">
+        <!-- Logo Section -->
+        <div class="logo-container">
+          <div class="logo-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="335" height="335" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="building-icon">
+              <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+              <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+              <path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/>
+              <path d="M10 6h4"/>
+              <path d="M10 10h4"/>
+              <path d="M10 14h4"/>
+              <path d="M10 18h4"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="card">
+          <form id="loginForm" class="form-content">
+            <div class="input-group">
+              <input type="text" id="nome" placeholder="NOME:" class="input-field" />
+            </div>
+            <div class="input-group">
+              <input type="password" id="senha" placeholder="SENHA:" class="input-field" />
+            </div>
+            <div class="input-group">
+              <input type="email" id="email" placeholder="E-MAIL:" class="input-field" />
+            </div>
+            <div class="button-container">
+              <button type="submit" class="submit-button">ENTRAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="Login.js"></script>
+  </body>
+</html>

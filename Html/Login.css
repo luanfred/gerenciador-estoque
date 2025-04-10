@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .container {
+    background-color: white;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .logo-container {
+    position: relative;
+    margin-bottom: 6rem;
+  }
+  
+  .logo-circle {
+    width: 469px;
+    height: 414px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid black;
+    border-radius: 234.5px/207px;
+  }
+  
+  .building-icon {
+    width: 335px;
+    height: 335px;
+    color: black;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 512px;
+  }
+  
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .input-field {
+    width: 100%;
+    height: 58px;
+    border-radius: 23px;
+    border: 3px solid black;
+    padding: 0 1.75rem;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .input-field::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .submit-button {
+    width: 222px;
+    height: 58px;
+    border-radius: 23px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submit-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  @media (max-width: 768px) {
+    .logo-circle {
+      width: 300px;
+      height: 300px;
+    }
+  
+    .building-icon {
+      width: 200px;
+      height: 200px;
+    }
+  }

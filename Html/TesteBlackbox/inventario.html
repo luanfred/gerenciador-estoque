@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Inventário</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container inventario-container">
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="profile-icon">
+                    <i class="building-icon"></i>
+                </div>
+            </div>
+            
+            <nav class="menu">
+                <button class="menu-item" id="btnCadastro">Cadastrar Produto</button>
+                <button class="menu-item active">Inventário</button>
+            </nav>
+            
+            <button class="logout-btn" id="btnLogout">
+                <i class="logout-icon"></i>
+                Sair
+            </button>
+        </aside>
+
+        <main class="main-content">
+            <h1>Inventário</h1>
+            <div class="table-container">
+                <table id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Valor</th>
+                            <th>Quantidade</th>
+                            <th>Descrição</th>
+                            <th>Fornecedor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaCorpo">
+                        <!-- Dados serão inseridos via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

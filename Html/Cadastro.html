@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Product Registration System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Inter:400|Julius+Sans+One:400|Inconsolata:900");
+    </style>
+    <link href="Cadastro.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="bg-white flex-center min-h-screen">
+        <div class="container">
+            <header class="header">
+                <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+                        <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+                        <path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/>
+                        <path d="M10 6h4"/>
+                        <path d="M10 10h4"/>
+                        <path d="M10 14h4"/>
+                        <path d="M10 18h4"/>
+                    </svg>
+                </div>
+                <div class="title-container">
+                    <h1>CADASTRO DO PRODUTO</h1>
+                    <div class="separator"></div>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="form-card">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" placeholder="Nome do produto">
+                        </div>
+                        <div class="form-group">
+                            <label for="valor">Valor:</label>
+                            <input type="text" id="valor" placeholder="Valor do produto">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade:</label>
+                            <input type="text" id="quantidade" placeholder="Quantidade em estoque">
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" id="descricao" placeholder="Descrição do produto">
+                        </div>
+                        <div class="form-group">
+                            <label for="fornecedor">Fornecedor:</label>
+                            <input type="text" id="fornecedor" placeholder="Nome do fornecedor">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-container">
+                    <div class="actions-card">
+                        <img class="action-image" alt="Product actions" src="/image-1.png">
+                        <div class="action-buttons">
+                            <button class="action-button">ADICIONAR</button>
+                            <button class="action-button">ATUALIZAR</button>
+                            <button class="action-button">DELETAR</button>
+                            <button class="action-button">VER ITEM</button>
+                        </div>
+                    </div>
+
+                    <div class="total-card">
+                        <h2>Valor Total dos Itens:</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="Cadastro.js"></script>
+</body>
+</html>

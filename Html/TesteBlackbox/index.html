@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container login-container">
+        <div class="logo-container">
+            <div class="logo-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="335" height="335" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+                    <path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/>
+                    <path d="M10 6h4"/>
+                    <path d="M10 10h4"/>
+                    <path d="M10 14h4"/>
+                    <path d="M10 18h4"/>
+                </svg>
+            </div>
+        </div>
+
+        <form id="loginForm" class="card">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="E-mail" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="senha" placeholder="Senha" required>
+            </div>
+            <button type="submit" class="submit-button">Entrar</button>
+        </form>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
